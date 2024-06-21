@@ -1,25 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { FormsModule } from "@angular/forms";
+
+import { NavComponent } from './nav/nav.component';
+import { AccountService } from './_services/account.service';
+import { User } from './_models/user';
+import { HomeComponent } from "./home/home.component";
+// import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+// import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [RouterOutlet],
     templateUrl: './app.component.html',
-    styleUrl: './app.component.css'
+    styleUrl: './app.component.css',
+    imports: [
+        RouterOutlet,
+        NavComponent,
+        FormsModule,
+        HomeComponent
+        // CommonModule
+        // BsDropdownModule
+    ]
 })
+
 export class AppComponent implements OnInit {
     title = 'Client';
-    users: any;
 
-    constructor(private http: HttpClient) { }
+    constructor( private accountService: AccountService) { }
 
     ngOnInit(): void {
-        this.http.get("http://localhost:5077/api/users").subscribe({
-            next: response => this.users = response,
-            error: error => console.log(error),
-            complete: () => console.log("Request has Completed")
-        })
+        this.setCurrentUser();
+    }
+
+    setCurrentUser() {
+        const userString = localStorage.getItem('user');
+        if (!userString) return;
+        const user: User = JSON.parse(userString);
+        this.accountService.setCurrentUser(user);
     }
 }
