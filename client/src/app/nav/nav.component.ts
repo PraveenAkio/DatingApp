@@ -23,13 +23,7 @@ export class NavComponent {
 
     login() {
         this.accountService.login(this.model).subscribe({
-            next: () => {
-                this.router.navigateByUrl('/members');
-            },
-            error: error => {
-                this.toastr.error('Invalid Username or Password.');
-                console.log(error);
-            }
+            next: _ => this.router.navigateByUrl('/members')
         })
     }
 
