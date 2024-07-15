@@ -1,15 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from "@angular/forms";
-
 import { NavComponent } from './nav/nav.component';
 import { AccountService } from './_services/account.service';
 import { User } from './_models/user';
 import { HomeComponent } from "./home/home.component";
-
-// import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-root',
@@ -21,8 +16,6 @@ import { HomeComponent } from "./home/home.component";
         NavComponent,
         FormsModule,
         HomeComponent
-        // BsDropdownModule
-        // CommonModule
     ]
 })
 

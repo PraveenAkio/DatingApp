@@ -4,11 +4,12 @@ import { AccountService } from '../_services/account.service';
 import { CommonModule } from '@angular/common'; // Need to use AsyncPipe in Nav Component.
 import { Router, RouterModule } from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [FormsModule, CommonModule, RouterModule],
+  imports: [FormsModule, CommonModule, RouterModule, BsDropdownModule],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })
