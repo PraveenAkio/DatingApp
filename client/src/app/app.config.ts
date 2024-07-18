@@ -1,12 +1,14 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http'; // HttpClientModule for angular v18
 import { provideToastr } from 'ngx-toastr';
-import { provideAnimations } from '@angular/platform-browser/animations';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { routes } from './app.routes';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
-import { jwtInterceptor } from './_interceptors/jwt.interceptor';
+import { JwtInterceptor } from './_interceptors/jwt.interceptor';
+import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -19,7 +21,9 @@ export const appConfig: ApplicationConfig = {
             positionClass: 'toast-bottom-right',
             preventDuplicates: true,
         }),
+        NgxSpinnerModule,
         {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
-        {provide: HTTP_INTERCEPTORS, useClass: jwtInterceptor, multi: true}
+        {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+        {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
     ]
 };

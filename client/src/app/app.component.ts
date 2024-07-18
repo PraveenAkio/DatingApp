@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from "@angular/forms";
-import { NavComponent } from './nav/nav.component';
-import { AccountService } from './_services/account.service';
-import { User } from './_models/user';
+import { NgxSpinnerComponent } from "ngx-spinner";
 import { HomeComponent } from "./home/home.component";
+import { AccountService } from './_services/account.service';
+import { NavComponent } from './nav/nav.component';
+import { User } from './_models/user';
 
 @Component({
     selector: 'app-root',
@@ -15,7 +16,8 @@ import { HomeComponent } from "./home/home.component";
         RouterOutlet,
         NavComponent,
         FormsModule,
-        HomeComponent
+        HomeComponent,
+        NgxSpinnerComponent
     ]
 })
 
