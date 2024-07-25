@@ -1,0 +1,8 @@
+.nv-file-over {
+    border: dotted 2px red;
+}
+
+input[type=file] {
+    color: transparent;
+}
+

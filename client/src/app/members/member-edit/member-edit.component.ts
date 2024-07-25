@@ -8,11 +8,12 @@ import { MembersService } from '../../_services/members.service';
 import { AccountService } from '../../_services/account.service';
 import { Member } from '../../_models/member';
 import { User } from '../../_models/user';
+import { PhotoEditorComponent } from "../photo-editor/photo-editor.component";
 
 @Component({
   selector: 'app-member-edit',
   standalone: true,
-  imports: [TabsModule, NgxGalleryModule, FormsModule],
+  imports: [TabsModule, NgxGalleryModule, FormsModule, PhotoEditorComponent],
   templateUrl: './member-edit.component.html',
   styleUrl: './member-edit.component.css'
 })
