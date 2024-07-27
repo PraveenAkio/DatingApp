@@ -9,6 +9,7 @@ import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 
+
 export const appConfig: ApplicationConfig = {
     providers: [
         provideZoneChangeDetection({ eventCoalescing: true }),
