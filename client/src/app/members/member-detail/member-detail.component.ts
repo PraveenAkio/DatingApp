@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { CommonModule } from '@angular/common';
+import { TimeagoModule } from 'ngx-timeago';
 import { Member } from '../../_models/member';
 import { MembersService } from '../../_services/members.service';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryModule, NgxGalleryOptions } from '@kolkov/ngx-gallery';
@@ -9,10 +11,11 @@ import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryModule, NgxGalleryOptio
 @Component({
   selector: 'app-member-detail',
   standalone: true,
-  imports: [TabsModule, NgxGalleryModule],
+  imports: [TabsModule, NgxGalleryModule, CommonModule, TimeagoModule],
   templateUrl: './member-detail.component.html',
   styleUrl: './member-detail.component.css'
 })
+
 export class MemberDetailComponent implements OnInit{
     member: Member | undefined;
     galleryOptions: NgxGalleryOptions[] = [];

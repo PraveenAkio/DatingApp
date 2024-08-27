@@ -3,6 +3,8 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FormsModule, NgForm } from "@angular/forms";
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ToastrService } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
+import { TimeagoModule } from 'ngx-timeago';
 import { take } from 'rxjs';
 import { MembersService } from '../../_services/members.service';
 import { AccountService } from '../../_services/account.service';
@@ -13,7 +15,7 @@ import { PhotoEditorComponent } from "../photo-editor/photo-editor.component";
 @Component({
   selector: 'app-member-edit',
   standalone: true,
-  imports: [TabsModule, NgxGalleryModule, FormsModule, PhotoEditorComponent],
+  imports: [TabsModule, NgxGalleryModule, FormsModule, PhotoEditorComponent, CommonModule, TimeagoModule],
   templateUrl: './member-edit.component.html',
   styleUrl: './member-edit.component.css'
 })
